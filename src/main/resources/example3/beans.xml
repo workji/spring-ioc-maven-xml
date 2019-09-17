@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- Dependency Injection from literals Start -->
     <bean id="student1" class="com.ki.example3.Student" >
         <property name="studentName" value="ZhangSan" />
         <property name="studentAge" value="30" />
@@ -27,4 +28,22 @@
         <constructor-arg name="name" value="Construct-Name3" type="java.lang.String" />
         <constructor-arg name="age" value="35" type="int"/>
     </bean>
+    <!-- Dependency Injection from literals End -->
+
+    <!-- Dependency Injection from Object Start -->
+    <bean id="student6" class="com.ki.example3.Student" >
+        <property name="teacher">
+            <bean class="com.ki.example3.Teacher">
+                <property name="name" value="W-Teacher"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="teacher1" class="com.ki.example3.Teacher">
+        <property name="name" value="LiLei-Teacher"/>
+    </bean>
+    <bean id="student7" class="com.ki.example3.Student">
+        <property name="teacher" ref="teacher1" />
+    </bean>
+    <!-- Dependency Injection from Object End -->
 </beans>

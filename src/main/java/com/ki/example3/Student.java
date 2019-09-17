@@ -19,7 +19,11 @@ public class Student {
     }
 
     // Dependency Injection from Object
-    public Teacher teacher;
+    private Teacher teacher;
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     // Dependency Injection from Collection
     public List<Friend> friends;
