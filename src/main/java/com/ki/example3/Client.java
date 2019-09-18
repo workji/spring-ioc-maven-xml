@@ -26,5 +26,14 @@ public class Client {
 
         Student s7 = context.getBean("student7", Student.class);
         System.out.println(s7);
+
+        Student s8 = context.getBean("student8", Student.class);
+        s8.showBooks();
+
+        Student s9 = context.getBean("student9", Student.class);
+        s9.showFriend();
+
+        Student s10 = context.getBean("student10", Student.class);
+        s10.showProps();
     }
 }
