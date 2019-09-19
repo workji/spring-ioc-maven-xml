@@ -5,7 +5,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class Client {
     public static void main(String[] args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:example5/app.xml");
+        ctx.load("classpath:xml/example5/app.xml");
         ctx.refresh();
 
         PizzaShop shop1 = ctx.getBean("pizzaShop1", PizzaShop.class);

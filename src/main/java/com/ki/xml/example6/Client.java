@@ -5,7 +5,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class Client {
     public static void main(String[] args) {
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:example6/app.xml");
+        ctx.load("classpath:xml/example6/app.xml");
         ctx.refresh();
 
         Bank bank = ctx.getBean("originBank", Bank.class);

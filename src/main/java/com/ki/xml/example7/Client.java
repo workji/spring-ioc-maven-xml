@@ -13,7 +13,7 @@ public class Client {
         // another way set jvm argument
         // -Dspring.profiles.active="test"
 
-        ctx.load("classpath:example7/app.xml");
+        ctx.load("classpath:xml/example7/app.xml");
         ctx.refresh();
 
         Person p1 = ctx.getBean("person", Person.class);
