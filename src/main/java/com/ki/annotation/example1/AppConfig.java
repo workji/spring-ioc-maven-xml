@@ -13,5 +13,9 @@ public class AppConfig {
         ApplicationContext ct = new AnnotationConfigApplicationContext(AppConfig.class);
         Person p1 = ct.getBean(Person.class);
         System.out.println(p1);
+
+        Book p2 = ct.getBean("newBook", Book.class);
+        System.out.println(p2);
+
     }
 }
