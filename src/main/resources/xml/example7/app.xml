@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="product-env.xml"/>
+    <import resource="develop-env.xml"/>
+    <import resource="test-env.xml"/>
+
+    <bean id="newPerson" class="com.ki.xml.example7.Person">
+        <property name="name" value="Every Where Person"/>
+    </bean>
+</beans>
