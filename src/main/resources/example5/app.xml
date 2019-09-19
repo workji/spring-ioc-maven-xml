@@ -3,13 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="singer" class="com.ki.example5.Singer" scope="prototype" />
-
-    <bean id="absSing" class="com.ki.example5.AbstractMakeSing">
-        <lookup-method name="getMySinger" bean="singer" />
+    <bean id="meatPizza" class="com.ki.example5.Pizza" scope="prototype">
+        <property name="isMeat" value="true" />
     </bean>
 
-    <bean id="demoSing" class="com.ki.example5.MakeSing">
-        <property name="mySinger" ref="singer" />
+    <bean id="veggiePizza" class="com.ki.example5.Pizza" scope="prototype">
+        <property name="isVeggie" value="true" />
     </bean>
+
+    <bean id="pizzaShop1" class="com.ki.example5.PizzaShop" scope="prototype">
+        <lookup-method name="makeMeatPizza" bean="meatPizza" />
+        <lookup-method name="makeVeggiePizza" bean="veggiePizza" />
+    </bean>
+
 </beans>

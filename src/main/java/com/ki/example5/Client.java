@@ -8,10 +8,15 @@ public class Client {
         ctx.load("classpath:example5/app.xml");
         ctx.refresh();
 
-        DemoSing d1 = ctx.getBean("absSing", DemoSing.class);
-        d1.toSing();
+        PizzaShop shop1 = ctx.getBean("pizzaShop1", PizzaShop.class);
 
-        DemoSing d2 = ctx.getBean("demoSing", DemoSing.class);
-        d2.toSing();
+        Pizza meatPizza = shop1.makeMeatPizza();
+        meatPizza.whatPizza();
+
+        Pizza veggiePizza = shop1.makeVeggiePizza();
+        veggiePizza.whatPizza();
+
+        Pizza normalPizza = shop1.makePizza();
+        normalPizza.whatPizza();
     }
 }

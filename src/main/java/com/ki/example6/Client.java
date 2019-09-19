@@ -8,11 +8,10 @@ public class Client {
         ctx.load("classpath:example6/app.xml");
         ctx.refresh();
 
-        ReplacementTarget target1 = ctx.getBean("originTarget", ReplacementTarget.class);
-        System.out.println((String)target1.formatMsg("Origin One"));
-
-        ReplacementTarget target2 = ctx.getBean("replaceTarget", ReplacementTarget.class);
-        System.out.println((String)target2.formatMsg("Replace One"));
+        Bank bank = ctx.getBean("originBank", Bank.class);
+        System.out.println(bank.getBankBalance("John"));
+        System.out.println(bank.getBankBalance("Mike"));
+        System.out.println(bank.getBankName());
 
         ctx.close();
     }
