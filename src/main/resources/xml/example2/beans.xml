@@ -6,5 +6,5 @@
     <import resource="employee.xml"/>
     <import resource="department.xml"/>
 
-    <bean id="operations" class="com.ki.xml.example2.Operations" />
+    <bean id="operations" class="com.ki.xml.example2.Operations" depends-on="employee"/>
 </beans>
