@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="classpath*:/xml/example10/messages"/>
+        <property name="basename" value="xml/example10/messages"/>
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
 
