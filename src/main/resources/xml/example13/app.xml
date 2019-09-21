@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="converter" class="com.ki.xml.example13.StringToDateTimeConverter" init-method="init">
+        <property name="dateTimePattern" value="yyyy:MM:dd:HH:mm:ss"/>
+    </bean>
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean" init-method="afterPropertiesSet">
+        <property name="converters" ref="converter"/>
+    </bean>
+
+    <context:property-placeholder location="classpath:xml/example13/test.properties"/>
+
+    <bean id="person" class="com.ki.xml.example13.Person">
+        <property name="dateTime" value="${test.datetime}"/>
+    </bean>
+</beans>
