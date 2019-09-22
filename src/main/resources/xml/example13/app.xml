@@ -8,13 +8,22 @@
         <property name="dateTimePattern" value="yyyy:MM:dd:HH:mm:ss"/>
     </bean>
 
+    <bean id="catConverter" class="com.ki.xml.example13.StringToCatConverter"/>
+
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean" init-method="afterPropertiesSet">
-        <property name="converters" ref="converter"/>
+        <property name="converters">
+            <set>
+                <ref bean="converter" />
+                <ref bean="catConverter"/>
+            </set>
+        </property>
     </bean>
 
     <context:property-placeholder location="classpath:xml/example13/test.properties"/>
 
     <bean id="person" class="com.ki.xml.example13.Person">
         <property name="dateTime" value="${test.datetime}"/>
+        <property name="cat" value="${test.cat.info}" />
     </bean>
+
 </beans>

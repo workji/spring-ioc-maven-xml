@@ -13,6 +13,8 @@ public class Client {
         Person p1 = ctx.getBean(Person.class);
         LocalDateTime localDateTime = p1.getDateTime();
         System.out.println(localDateTime);
+        Cat cat = p1.getCat();
+        System.out.println(cat.getName() + " - " + cat.getAge());
 
         ctx.close();
     }
