@@ -23,19 +23,27 @@ public class AppConfig {
     }
 
     @Bean
+    StringToCatConverter catConverter() {
+        StringToCatConverter converter = new StringToCatConverter();
+        return converter;
+    }
+
+    @Bean
     public ConversionServiceFactoryBean conversionService() {
         ConversionServiceFactoryBean conversionServiceFactoryBean = new ConversionServiceFactoryBean();
         Set<Converter> convs = new HashSet<>();
         convs.add(converter());
+        convs.add(catConverter());
         conversionServiceFactoryBean.setConverters(convs);
         conversionServiceFactoryBean.afterPropertiesSet();
         return conversionServiceFactoryBean;
     }
 
     @Bean
-    public Person oneMan(@Value("${test.datetime}") LocalDateTime localDateTime) {
+    public Person oneMan(@Value("${test.datetime}") LocalDateTime localDateTime, @Value("${test.cat.info}") Cat cat) {
         Person person = new Person();
         person.setDateTime(localDateTime);
+        person.setCat(cat);
         return person;
     }
 
@@ -44,5 +52,7 @@ public class AppConfig {
         Person p1 = context.getBean(Person.class);
         System.out.println(p1.getDateTime());
 
+        Cat cat = p1.getCat();
+        System.out.println(cat.getName() + " - " + cat.getAge());
     }
 }
